@@ -71,11 +71,23 @@ async function processCSVFile(filePath, limit = 5) {
 async function main() {
   try {
     // Check if file path is provided
-    const filePath = process.argv[2];
+    let filePath = process.argv[2];
     if (!filePath) {
       console.error("Please provide a CSV file path as an argument");
-      console.log("Usage: node man-z-bounce.js path/to/your/file.csv");
+      console.log("Usage: node index.js path/to/your/file.csv [email_limit]");
+      console.log(
+        "Or place your CSV file in the 'input' folder and run: node index.js filename.csv [email_limit]"
+      );
       process.exit(1);
+    }
+
+    // If filePath doesn't have directory info, check the input folder
+    if (!filePath.includes("/") && !filePath.includes("\\")) {
+      const inputFilePath = path.join(process.cwd(), "input", filePath);
+      if (fs.existsSync(inputFilePath)) {
+        filePath = inputFilePath;
+        console.log(`Using file from input directory: ${filePath}`);
+      }
     }
 
     // Check if file exists
