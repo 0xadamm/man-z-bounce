@@ -26,17 +26,31 @@ A Node.js application for validating email addresses using ZeroBounce API.
    ```
    Then edit the `.env` file to add your ZeroBounce API key.
 
+## Project Structure
+
+- `input/`: Place your CSV files here for easy access
+- `output/`: Contains validation results
+  - `output/json/`: Results in JSON format
+  - `output/csv/`: Results in CSV format
+- `utils/`: Helper functions
+
 ## Usage
 
 Run the application with a CSV file containing email addresses:
 
 ```
-node man-z-bounce.js path/to/your/file.csv [email_limit]
+node index.js path/to/your/file.csv [email_limit]
+```
+
+Or place your CSV file in the `input` folder and run:
+
+```
+node index.js filename.csv [email_limit]
 ```
 
 Parameters:
 
-- `path/to/your/file.csv`: Path to the CSV file with email addresses (required)
+- `path/to/your/file.csv` or `filename.csv`: Path to the CSV file with email addresses (required)
 - `email_limit`: Maximum number of emails to process (optional, default: 5, use 0 for no limit)
 
 The CSV file should have an "email" column containing the email addresses to validate.
