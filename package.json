@@ -1,0 +1,23 @@
+{
+  "name": "man-z-bounce",
+  "version": "1.0.0",
+  "description": "Email validation tool using ZeroBounce API",
+  "main": "man-z-bounce.js",
+  "scripts": {
+    "start": "node man-z-bounce.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "email",
+    "validation",
+    "zerobounce"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@zerobounce/zero-bounce-sdk": "^1.1.0",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.4.5",
+    "node-range": "^0.1.0"
+  }
+}
