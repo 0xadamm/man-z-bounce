@@ -16,8 +16,10 @@
   "license": "ISC",
   "dependencies": {
     "@zerobounce/zero-bounce-sdk": "^1.1.0",
+    "axios": "^1.8.2",
     "csv-parser": "^3.0.0",
     "dotenv": "^16.4.5",
+    "form-data": "^4.0.2",
     "node-range": "^0.1.0"
   }
 }
