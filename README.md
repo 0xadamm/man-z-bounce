@@ -13,17 +13,23 @@ A Node.js application for validating email addresses using ZeroBounce API.
 
 1. Clone this repository or copy all files to your local machine.
 2. Navigate to the project directory:
-   ```
+
+   ```bash
    cd man-z-bounce
    ```
+
 3. Install dependencies:
-   ```
+
+   ```bash
    npm install
    ```
+
 4. Create a `.env` file with your ZeroBounce API key:
-   ```
+
+   ```bash
    cp .env.example .env
    ```
+
    Then edit the `.env` file to add your ZeroBounce API key.
 
 ## Project Structure
@@ -38,13 +44,13 @@ A Node.js application for validating email addresses using ZeroBounce API.
 
 Run the application with a CSV file containing email addresses:
 
-```
+```bash
 node index.js path/to/your/file.csv [email_limit]
 ```
 
 Or place your CSV file in the `input` folder and run:
 
-```
+```bash
 node index.js filename.csv [email_limit]
 ```
 
