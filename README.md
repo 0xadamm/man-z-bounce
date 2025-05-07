@@ -99,3 +99,41 @@ The application will create an `output` directory with validated emails:
 - ❌ `output/csv/invalid_emails_[timestamp].csv`: Invalid email addresses in CSV format
 
 For bulk validation, file names will include "bulk" (e.g., `valid_emails_bulk_[timestamp].json`).
+
+## 🔄 Converting JSON to CSV
+
+If you need to convert the JSON output files to a specific CSV format:
+
+```bash
+node convert-json-to-csv.js output/json/valid_emails_bulk_[timestamp].json
+```
+
+or
+
+```bash
+node convert-json-to-csv.js output/json/invalid_emails_bulk_[timestamp].json
+```
+
+Replace `[timestamp]` with the actual timestamp in your output files.
+
+This will create a new CSV file with ZeroBounce fields in the same directory as the source JSON:
+
+```
+output/json/valid_emails_bulk_[timestamp]_converted.csv
+```
+
+The converted CSV includes the following ZeroBounce fields:
+
+- Email Address
+- Status
+- Sub Status
+- Account
+- Domain
+- First Name
+- Last Name
+- Gender
+- Free Email
+- MX Found
+- MX Record
+- SMTP Provider
+- Custom
