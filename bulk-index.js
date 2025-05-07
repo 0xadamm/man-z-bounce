@@ -184,38 +184,58 @@ async function main() {
     // Manually create the CSV content for valid emails
     let validCsvContent;
     if (validEmails.length > 0) {
-      // Create header row
-      validCsvContent = "FirstName,LastName,Email,Company\n";
+      // Create header row using ZeroBounce field names
+      validCsvContent =
+        "Email Address,Status,Sub Status,Account,Domain,First Name,Last Name,Gender,Free Email,MX Found,MX Record,SMTP Provider,Custom\n";
 
       // Add each row manually
       validEmails.forEach((item) => {
-        const firstName = item.FirstName || item['"FirstName"'] || "";
-        const lastName = item.LastName || "";
-        const email = item.Email || "";
-        const company = item.Company === "%" ? "" : item.Company || "";
+        const emailAddress = item['"Email Address"'] || "";
+        const status = item["ZB Status"] || "";
+        const subStatus = item["ZB Sub status"] || "";
+        const account = item["ZB Account"] || "";
+        const domain = item["ZB Domain"] || "";
+        const firstName = item["ZB First Name"] || "";
+        const lastName = item["ZB Last Name"] || "";
+        const gender = item["ZB Gender"] || "";
+        const freeEmail = item["ZB Free Email"] || "";
+        const mxFound = item["ZB MX Found"] || "";
+        const mxRecord = item["ZB MX Record"] || "";
+        const smtpProvider = item["ZB SMTP Provider"] || "";
+        const custom = item["Custom"] || "";
 
         // Create clean CSV row
-        validCsvContent += `${firstName},${lastName},${email},${company}\n`;
+        validCsvContent += `${emailAddress},${status},${subStatus},${account},${domain},${firstName},${lastName},${gender},${freeEmail},${mxFound},${mxRecord},${smtpProvider},${custom}\n`;
       });
     } else {
       validCsvContent = "No valid emails found";
     }
 
-    // For invalid emails, let's manually create the CSV content
+    // For invalid emails, use the same structure
     let invalidCsvContent;
     if (invalidEmails.length > 0) {
-      // Create header row
-      invalidCsvContent = "FirstName,LastName,Email,Company\n";
+      // Create header row using ZeroBounce field names
+      invalidCsvContent =
+        "Email Address,Status,Sub Status,Account,Domain,First Name,Last Name,Gender,Free Email,MX Found,MX Record,SMTP Provider,Custom\n";
 
       // Add each row manually
       invalidEmails.forEach((item) => {
-        const firstName = item.FirstName || item['"FirstName"'] || "";
-        const lastName = item.LastName || "";
-        const email = item.Email || "";
-        const company = item.Company === "%" ? "" : item.Company || "";
+        const emailAddress = item['"Email Address"'] || "";
+        const status = item["ZB Status"] || "";
+        const subStatus = item["ZB Sub status"] || "";
+        const account = item["ZB Account"] || "";
+        const domain = item["ZB Domain"] || "";
+        const firstName = item["ZB First Name"] || "";
+        const lastName = item["ZB Last Name"] || "";
+        const gender = item["ZB Gender"] || "";
+        const freeEmail = item["ZB Free Email"] || "";
+        const mxFound = item["ZB MX Found"] || "";
+        const mxRecord = item["ZB MX Record"] || "";
+        const smtpProvider = item["ZB SMTP Provider"] || "";
+        const custom = item["Custom"] || "";
 
         // Create clean CSV row
-        invalidCsvContent += `${firstName},${lastName},${email},${company}\n`;
+        invalidCsvContent += `${emailAddress},${status},${subStatus},${account},${domain},${firstName},${lastName},${gender},${freeEmail},${mxFound},${mxRecord},${smtpProvider},${custom}\n`;
       });
     } else {
       invalidCsvContent = "No invalid emails found";
